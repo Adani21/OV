@@ -3,12 +3,14 @@ public class kaartLezer {
     private String lezerId;
     private String locatie;
     private boolean actief;
+    private double minimumSaldo;
 
     // Constructor
     public kaartLezer(String lezerId, String locatie, boolean actief) {
         this.lezerId = lezerId;
         this.locatie = locatie;
         this.actief = actief;
+        this.minimumSaldo = 20;
     }
 
     // Methoden
@@ -26,7 +28,7 @@ public class kaartLezer {
     }
 
     public boolean controleerSaldo(anoniemeChipkaart kaart){
-        if (kaart.saldo >= kaart.bedrag) {
+        if (kaart.saldo >= minimumSaldo) {
             System.out.println("Saldo controle: kaart heeft voldoende saldo");
             return true;
         }
@@ -47,5 +49,11 @@ public class kaartLezer {
         }
     }
 
-
+    public String toString() {
+        return "Kaartlezer{" +
+                "lezerId='" + lezerId + '\'' +
+                ", locatie='" + locatie + '\'' +
+                ", actief=" + actief +
+                '}';
+    }
 }

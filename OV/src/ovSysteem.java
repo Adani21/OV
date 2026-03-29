@@ -18,5 +18,10 @@ public class ovSysteem {
             System.out.println("Incheck niet geregistreerd in OV systeem");
        }
     }
-
+    public String toString() {
+        return "OVSystem{" +
+                "systemId='" + systemId + '\'' +
+                ", aantalKaarten=" + aantalKaarten +
+                '}';
+    }
 }
