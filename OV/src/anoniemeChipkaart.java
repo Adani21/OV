@@ -1,42 +1,52 @@
-import java.util.Date;
+import java.time.LocalDate;
 
-public class anoniemeChipkaart {
-    // Attributen (Private)
+ class AnoniemeChipkaart {
+
+    // Attributen (allemaal private voor encapsulatie)
     private String kaartnummer;
-    public double saldo;
+    private double saldo;
     private boolean geldig;
-    private Date vervaldatum;
+    private LocalDate vervaldatum;
+    private boolean ingecheckt;
 
     // Constructor
-    public anoniemeChipkaart(String kaartnummer, double saldo, boolean geldig, Date vervaldatum) {
+    public AnoniemeChipkaart(String kaartnummer, double saldo, boolean geldig, LocalDate vervaldatum) {
         this.kaartnummer = kaartnummer;
         this.saldo = saldo;
         this.geldig = geldig;
         this.vervaldatum = vervaldatum;
+        this.ingecheckt = false;
     }
 
-    // Methoden
-    // Check of kaart geldig is
-    public boolean checkGeldig() {
-        if (geldig) {
-            return true;
-        } else {
-            return false;
-        }
+    // Getters & Setters
+    public double getSaldo() {
+        return saldo;
     }
-//    public void blokkerenKaart() {
-//        geldig = false;
-//        System.out.println("Kaart is geblokkeerd.");
-//    }
-        public String toString () {
-            return "AnonlemeChipkaart{" +
-                    "kaartnummer='" + kaartnummer + '\'' +
-                    ", saldo=€" + saldo +
-                    ", geldig=" + geldig +
-                    ", vervaldatum=" + vervaldatum +
-                    '}';
-        }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public boolean isGeldig() {
+        return geldig;
+    }
+
+    public boolean isIngecheckt() {
+        return ingecheckt;
+    }
+
+    public void setIngecheckt(boolean status) {
+        this.ingecheckt = status;
+    }
 
 
-
+    public String toString() {
+        return "AnoniemeChipkaart{" +
+                "kaartnummer='" + kaartnummer + '\'' +
+                ", saldo=€" + saldo +
+                ", geldig=" + geldig +
+                ", vervaldatum=" + vervaldatum +
+                ", ingecheckt=" + ingecheckt +
+                '}';
+    }
 }
